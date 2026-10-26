@@ -1,0 +1,61 @@
+HYBRID VEHICLE SECURITY DETECTOR — CORRECTED VERSION
+Working folder: /storage/emulated/0/Vehicle Detector
+Rule checks + Isolation Forest anomaly scoring
+Synthetic/demo metrics are not proof of real-world performance.
+
+
+===== TELEMETRY EVALUATION (labels used only after detection) =====
+Rows evaluated: 60480
+Ground-truth attacks: 604
+Alerts: 2334
+Attacks detected: 604
+Attacks missed: 0
+False alarms on normal rows: 1730
+Confusion matrix [normal, attack] x [normal, alert]:
+[[58146  1730]
+ [    0   604]]
+              precision    recall  f1-score   support
+
+      normal       1.00      0.97      0.99     59876
+      attack       0.26      1.00      0.41       604
+
+    accuracy                           0.97     60480
+   macro avg       0.63      0.99      0.70     60480
+weighted avg       0.99      0.97      0.98     60480
+
+Telemetry rows processed: 60480
+Telemetry rule alerts: 2229
+Telemetry model anomalies: 605
+Telemetry model-only alerts: 105
+
+===== LOGIN EVALUATION (labels used only after detection) =====
+Rows evaluated: 761
+Ground-truth attacks: 17
+Alerts: 190
+Attacks detected: 17
+Attacks missed: 0
+False alarms on normal rows: 173
+Confusion matrix [normal, attack] x [normal, alert]:
+[[571 173]
+ [  0  17]]
+              precision    recall  f1-score   support
+
+      normal       1.00      0.77      0.87       744
+      attack       0.09      1.00      0.16        17
+
+    accuracy                           0.77       761
+   macro avg       0.54      0.88      0.52       761
+weighted avg       0.98      0.77      0.85       761
+
+Login rows processed: 761
+Login rule alerts: 182
+Login model anomalies: 15
+Login model-only alerts after context check: 8
+
+OUTPUT FILES
+Telemetry: telemetry_alerts_corrected.csv
+Logins: login_alerts_corrected.csv
+Summary: detector_summary_corrected.txt
+
+Review alert_reason for why each row was flagged.
+Compare alerts with ground-truth labels only during evaluation.
